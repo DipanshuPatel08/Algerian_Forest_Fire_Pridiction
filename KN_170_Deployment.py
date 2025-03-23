@@ -4,7 +4,8 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
-app = Flask(__name__)
+KN_170_Deployment = Flask(__name__)
+app = KN_170_Deployment
 
 # Load Ridge Regression Model and StandardScaler
 try:
