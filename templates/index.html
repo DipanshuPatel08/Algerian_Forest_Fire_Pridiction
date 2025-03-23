@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algerian Forest Fires - Introduction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #d32f2f;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        main {
+            padding: 2rem;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            color: #d32f2f;
+        }
+        ul {
+            text-align: left;
+            max-width: 600px;
+            margin: auto;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #d32f2f;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background: #b71c1c;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Algerian Forest Fires</h1>
+    </header>
+
+    <main>
+        <div class="container">
+            <p>Algeria frequently experiences severe forest fires, especially between June and September. These fires are influenced by various weather and environmental factors. Our system predicts fire occurrence based on different meteorological and fire weather indices.</p>
+
+            <h2>Key Features Considered in Fire Prediction</h2>
+            <ul>
+                <li><strong>Date:</strong> Observations from June to September 2012.</li>
+                <li><strong>Temperature:</strong> Max daily temperature (22°C to 42°C).</li>
+                <li><strong>Relative Humidity (RH):</strong> Humidity percentage (21% to 90%).</li>
+                <li><strong>Wind Speed (Ws):</strong> Speed in km/h (6 to 29 km/h).</li>
+                <li><strong>Rainfall:</strong> Total daily rainfall (0 to 16.8 mm).</li>
+            </ul>
+
+            <h2>Fire Weather Indices (FWI System)</h2>
+            <ul>
+                <li><strong>FFMC (Fine Fuel Moisture Code):</strong> Dryness of fine fuels (28.6 to 92.5).</li>
+                <li><strong>DMC (Duff Moisture Code):</strong> Moisture of decomposed material (1.1 to 65.9).</li>
+                <li><strong>DC (Drought Code):</strong> Deep-layer drought conditions (7 to 220.4).</li>
+                <li><strong>ISI (Initial Spread Index):</strong> Expected fire spread (0 to 18.5).</li>
+                <li><strong>BUI (Buildup Index):</strong> Combustible material buildup (1.1 to 68).</li>
+                <li><strong>FWI (Fire Weather Index):</strong> Overall fire intensity indicator (0 to 31.1).</li>
+                <li><strong>Class:</strong> Binary classification - "Fire" or "Not Fire".</li>
+            </ul>
+
+            <p>Using this data, our model predicts the likelihood of a forest fire occurring.</p>
+
+            <a href="/predict_datapoint" class="btn">Proceed to Prediction</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Algerian Forest Fire Prediction</p>
+    </footer>
+
+</body>
+</html>

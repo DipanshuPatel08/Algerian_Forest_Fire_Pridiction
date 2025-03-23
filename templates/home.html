@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FWI Prediction</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #f4f4f9; 
+            text-align: center; 
+            margin: 0;
+            padding: 0;
+        }
+        .container { 
+            max-width: 800px; 
+            margin: auto; 
+            background: white; 
+            padding: 20px; 
+            margin-top: 50px; 
+            border-radius: 8px; 
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+            text-align: left;
+        }
+        h1 { 
+            color: #d32f2f; 
+            text-align: center;
+        }
+        .info-box {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .info-text {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .info-text h2 {
+            color: #d32f2f;
+        }
+        .info-text small {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: #555;
+        }
+        .input-box {
+            flex: 1;
+        }
+        .input-box input {
+            width: 90%; 
+            padding: 10px; 
+            margin: 10px 0; 
+            border: 1px solid #ccc; 
+            border-radius: 5px;
+        }
+        .btn { 
+            background-color: #d32f2f; 
+            color: white; 
+            padding: 10px 15px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            width: 100%; 
+            font-size: 16px; 
+        }
+        .btn:hover { 
+            background-color: #b71c1c; 
+        }
+        .result { 
+            margin-top: 20px; 
+            font-size: 18px; 
+            color: #d32f2f; 
+            font-weight: bold; 
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Forest Fire Prediction</h1>
+        <p>Enter the values within the specified ranges:</p>
+
+        <!-- Add the form tag with action pointing to /predict_datapoint -->
+        <form action="{{ url_for('predict_datapoint') }}" method="post">
+            <div class="info-box">
+                <div class="info-text">
+                    <h2>Temperature (°C)</h2>
+                    <small>Range: 22 - 42</small>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="Temperature" required />
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-text">
+                    <h2>Relative Humidity (%)</h2>
+                    <small>Range: 21 - 90</small>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="RH" required />
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-text">
+                    <h2>Wind Speed (km/h)</h2>
+                    <small>Range: 6 - 29</small>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="Ws" required />
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-text">
+                    <h2>Rainfall (mm)</h2>
+                    <small>Range: 0 - 16.8</small>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="Rain" required />
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-text">
+                    <h2>FFMC Index</h2>
+                    <small>Range: 28.6 - 92.5</small>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="FFMC" required />
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-text">
+                    <h2>DMC Index</h2>
+                    <small>Range: 1.1 - 65.9</small>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="DMC" required />
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-text">
+                    <h2>ISI Index</h2>
+                    <small>Range: 0 - 18.5</small>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="ISI" required />
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-text">
+                    <h2>Classes</h2>
+                    <small>Range: 0 - Not Fire | 1 - Fire</small>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="Classes" required />
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-text">
+                    <h2>Region</h2>
+                    <small>Range: 0 - Bejaia Region | 1 - Sidi-Bel Abbes Region</small>
+                </div>
+                <div class="input-box">
+                    <input type="text" name="Region" required />
+                </div>
+            </div>
+
+            <button type="submit" class="btn">Predict</button>
+        </form>
+
+        <!-- Display the prediction result -->
+        {% if result %}
+        <div class="result">
+            <h2>FWI Prediction: {{ result }}</h2>
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
